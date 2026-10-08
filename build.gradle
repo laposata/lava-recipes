@@ -1,6 +1,7 @@
 plugins {
 	id 'net.fabricmc.fabric-loom' version "${loom_version}"
 	id 'maven-publish'
+	id "com.modrinth.minotaur" version "2.+"
 }
 
 repositories {
@@ -85,4 +86,17 @@ publishing {
 		// The repositories here will be used for publishing your artifact, not for
 		// retrieving dependencies.
 	}
+}
+this.version = "1.0.0";
+modrinth {
+	token = System.getenv("MODRINTH_TOKEN") // Use env var for security
+	projectId = "QafYNVz9" // ID or slug of your Modrinth project
+	versionNumber = this.version // Optional; will fail if already exists
+	versionType = "release" // "release", "beta", or "alpha"
+	uploadFile = "build/libs/lava-recipes-${version}.jar"// Use "remapJar" with Fabric Loom
+	gameVersions = ["26.2"]
+	loaders = ["fabric"]
+	dependencies = [
+			new com.modrinth.minotaur.dependencies.ModDependency("P7dR8mSH", "required") // Fabric API
+	]
 }

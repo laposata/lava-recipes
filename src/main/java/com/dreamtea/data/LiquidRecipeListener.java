@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.function.BiFunction;
 
 public class LiquidRecipeListener extends ReloadListener<LiquidRecipe, Map<Identifier, LiquidRecipe>> {
-    private static final DataResourceStore.Key<Map<Identifier, LiquidRecipe>> LIQUID_RECIPE_MAP = new DataResourceStore.Key<>();
+    private static final DataResourceStore.Key<List<LiquidRecipe>> LIQUID_RECIPE_MAP = new DataResourceStore.Key<>();
 
     public LiquidRecipeListener() {
         super("liquid_recipes",
@@ -26,21 +26,21 @@ public class LiquidRecipeListener extends ReloadListener<LiquidRecipe, Map<Ident
     protected void apply(Map<Identifier, LiquidRecipe> prepared, SharedState state) {
         state.get(DataResourceLoader.DATA_RESOURCE_STORE_KEY).put(
                 LIQUID_RECIPE_MAP,
-                prepared
+                prepared.values().stream().sorted().toList()
         );
     }
 
-    public static Map<Identifier, LiquidRecipe> getInstance(ServerLevel level) {
+    public static List<LiquidRecipe> getInstance(ServerLevel level) {
         if(level != null) {
             return level.getServer().getOrThrow(LIQUID_RECIPE_MAP);
         }
-        return Map.of();
+        return List.of();
     }
 
     public static List<LiquidRecipe> getRecipes(ServerLevel level){
-        return getInstance(level).values().stream().toList();
+        return getInstance(level);
     }
-    public static BiFunction<Level, BlockPos, Map<Identifier, LiquidRecipe>> getInstance(){
+    public static BiFunction<Level, BlockPos, List<LiquidRecipe>> getInstance(){
         return (level, pos) -> level instanceof ServerLevel server ? getInstance(server) : null;
     }
 }

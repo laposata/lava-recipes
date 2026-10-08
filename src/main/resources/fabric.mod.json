@@ -18,19 +18,12 @@
 		"main": [
 			"com.dreamtea.LavaRecipes"
 		],
-		"client": [
-			"com.dreamtea.client.LavaRecipesClient"
-		],
 		"fabric-datagen": [
 			"com.dreamtea.LavaRecipeDataGenerator"
 		]
 	},
 	"mixins": [
-		"lava-recipes.mixins.json",
-		{
-			"config": "lava-recipes.client.mixins.json",
-			"environment": "client"
-		}
+		"lava-recipes.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.19.5",

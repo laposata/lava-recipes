@@ -73,5 +73,50 @@ public class DefaultRecipes extends DefaultHolder<LiquidRecipe> {
                 List.of(),
                 Blocks.STONE.defaultBlockState()
         ));
+//        instance.create(id("lava_to_deepslate"), (provider) -> new LiquidRecipe(
+//                List.of(
+//                        new InteractionPair(
+//                                InteractionDirection.Horizontal.asSet(),
+//                                FluidPredicate.Builder.fluid().of(provider.getOrThrow(FluidTags.WATER)).build()),
+//                        new InteractionPair(
+//                                InteractionDirection.Self.asSet(),
+//                                FluidPredicate.Builder.fluid().of(provider.getOrThrow(LAVA_FLOW)).build()),
+//                        new InteractionPair(
+//                                InteractionDirection.Any.asSet(),
+//                                BlockPredicate.Builder.block().of(
+//                                        provider.lookup(Registries.BLOCK).get(),
+//                                        Blocks.BLACKSTONE,
+//                                        Blocks.POLISHED_BLACKSTONE,
+//                                        Blocks.CHISELED_POLISHED_BLACKSTONE,
+//                                        Blocks.POLISHED_BLACKSTONE_BRICKS,
+//                                        Blocks.CRACKED_POLISHED_BLACKSTONE_BRICKS,
+//                                        Blocks.GILDED_BLACKSTONE).build(),
+//                                4
+//                        )
+//                ),
+//                List.of(),
+//                Blocks.DEEPSLATE.defaultBlockState()));
+//        instance.create(id("lava_to_cinnabar"), (provider) -> new LiquidRecipe(
+//                List.of(
+//                        new InteractionPair(
+//                                InteractionDirection.Horizontal.asSet(),
+//                                FluidPredicate.Builder.fluid().of(provider.getOrThrow(FluidTags.WATER)).build()),
+//                        new InteractionPair(
+//                                InteractionDirection.Self.asSet(),
+//                                FluidPredicate.Builder.fluid().of(provider.getOrThrow(LAVA_FLOW)).build()),
+//                        new InteractionPair(
+//                                InteractionDirection.Bottom.asSet(),
+//                                BlockPredicate.Builder.block().of(
+//                                        provider.lookup(Registries.BLOCK).get(),
+//                                        Blocks.CINNABAR,
+//                                        Blocks.CINNABAR_BRICKS,
+//                                        Blocks.CHISELED_CINNABAR,
+//                                        Blocks.POLISHED_CINNABAR
+//                                ).build()
+//                        )
+//                ),
+//                List.of(),
+//                Blocks.CINNABAR.defaultBlockState(),
+//                1));
     }
 }
