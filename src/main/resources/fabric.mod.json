@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "lava-recipes",
+	"version": "${version}",
+	"name": "Lava Recipes",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/lava-recipes/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.dreamtea.LavaRecipes"
+		],
+		"client": [
+			"com.dreamtea.client.LavaRecipesClient"
+		],
+		"fabric-datagen": [
+			"com.dreamtea.LavaRecipeDataGenerator"
+		]
+	},
+	"mixins": [
+		"lava-recipes.mixins.json",
+		{
+			"config": "lava-recipes.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
