@@ -27,7 +27,7 @@ public class LavaRecipes implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 
-		LOGGER.info("Hello Fabric world!");
+		LOGGER.info("Lava_recipes");
 		ResourceLoader.get(PackType.SERVER_DATA).registerReloadListener(
 				LIQUID_RECIPE_RELOAD_ID,
 				new LiquidRecipeListener()
